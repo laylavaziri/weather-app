@@ -16,73 +16,76 @@
   </head>
   <body>
     <div id="app"></div>
-    <div class="container">
-      <h1>Weather Forecast <span class="planet">🌏</span></h1>
-      <form class="search" id="city-search">
-        <div class="mb-3 row">
-          <div class="col-6">
-            <input
-              class="form-control"
-              id="city-input"
-              placeholder="Enter city name"
-            />
+    <div class="weather-app">
+      <div class="container">
+        <h1>Weather Forecast <span class="planet">🌏</span></h1>
+        <form class="search" id="city-search">
+          <div class="mb-3 row">
+            <div class="col-6">
+              <input
+                class="form-control"
+                id="city-input"
+                placeholder="Enter city name"
+              />
+            </div>
+            <div class="col-1">
+              <button type="submit" class="btn btn-primary">🔎</button>
+            </div>
           </div>
-          <div class="col-1">
-            <button type="submit" class="btn btn-primary">🔎</button>
+        </form>
+        <h2>
+          🌧
+          <span id="city-name">Tehran</span>
+
+          <div class="city-degree" id="city-degree">18</div>
+        </h2>
+        <p class="degree-type" id="degreeTypes">
+          <span class="celcius-farenheit" id="celcius">°C</span>|<span
+            class="celcius-farenheit"
+            id="farenheit"
+          >
+            °F</span
+          >
+        </p>
+        <p class="day-time" id="week-daytime">Thursday</p>
+        <ul class="weather-components">
+          <li>
+            <span class="description" id="description">Rainy</span>
+            <span class="description"> Today</span>
+          </li>
+          <li>Precipitation: <span id="precipitation"> 14 </span> %</li>
+          <li>Humidity: <span id="humidity">40 </span>%</li>
+          <li>Wind: <span id="wind"> 14 </span> km/h</li>
+        </ul>
+        <div class="forecast">
+          <div class="row days">
+            <div class="col-2">Mon</div>
+            <div class="col-2">Tue</div>
+            <div class="col-2">Wed</div>
+            <div class="col-2">Thu</div>
+            <div class="col-2">Fri</div>
+            <div class="col-2">Sat</div>
+          </div>
+          <div class="row emojis">
+            <div class="col-2">🌧</div>
+            <div class="col-2">⛅️</div>
+            <div class="col-2">🌦</div>
+            <div class="col-2">🌤</div>
+            <div class="col-2">🌩</div>
+            <div class="col-2">☀️</div>
+          </div>
+          <div class="row temp">
+            <div class="col-2">18° <span class="low">11°</span></div>
+            <div class="col-2">21° <span class="low">14°</span></div>
+            <div class="col-2">21° <span class="low">15°</span></div>
+            <div class="col-2">16° <span class="low">9°</span></div>
+            <div class="col-2">18° <span class="low">10°</span></div>
+            <div class="col-2">21° <span class="low">12°</span></div>
           </div>
         </div>
-      </form>
-      <h2>
-        🌧
-        <span id="city-name">Tehran</span>
-
-        <div class="city-degree" id="city-degree">18</div>
-      </h2>
-      <p class="degree-type" id="degreeTypes">
-        <span class="celcius-farenheit" id="celcius">°C</span>|<span
-          class="celcius-farenheit"
-          id="farenheit"
-        >
-          °F</span
-        >
-      </p>
-      <p class="day-time">
-        <span id="week-day">Thursday</span> <span id="hour">12</span>:<span
-          id="minute"
-          >00</span
-        >
-      </p>
-      <ul class="weather-components">
-        <li>Precipitation: 75%</li>
-        <li>Humidity: <span id="humidity">40 </span>%</li>
-        <li>Wind: <span id="wind"> 14 </span> km/h</li>
-      </ul>
-      <div class="row days">
-        <div class="col-2">Mon</div>
-        <div class="col-2">Tue</div>
-        <div class="col-2">Wed</div>
-        <div class="col-2">Thu</div>
-        <div class="col-2">Fri</div>
-        <div class="col-2">Sat</div>
-      </div>
-      <div class="row emojis">
-        <div class="col-2">🌧</div>
-        <div class="col-2">⛅️</div>
-        <div class="col-2">🌦</div>
-        <div class="col-2">🌤</div>
-        <div class="col-2">🌩</div>
-        <div class="col-2">☀️</div>
-      </div>
-      <div class="row temp">
-        <div class="col-2">18° <span class="low">11°</span></div>
-        <div class="col-2">21° <span class="low">14°</span></div>
-        <div class="col-2">21° <span class="low">15°</span></div>
-        <div class="col-2">16° <span class="low">9°</span></div>
-        <div class="col-2">18° <span class="low">10°</span></div>
-        <div class="col-2">21° <span class="low">12°</span></div>
       </div>
       <p class="code">
-        <a href="https://github.com/laylavaziri/weather-app"
+        <a href="https://github.com/laylavaziri/weather-app" target="_blank"
           >open-source code</a
         >
         by Layla
