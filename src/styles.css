@@ -21,27 +21,31 @@ h2 {
   margin-top: 30px;
   margin-bottom: 5px;
 }
-
+.icon {
+  width: 85px;
+}
 .planet {
   position: relative;
   top: 5px;
 }
 li {
   margin-top: 6px;
+  text-transform: capitalize;
 }
 
 .weather-components {
   display: block;
   font-size: 12px;
-  max-width: 160px;
-  height: 110px;
+  max-width: 200px;
+  height: 80px;
   position: relative;
   list-style: none;
   color: #49528f;
+  background-color: rgb(81, 132, 202, 0.1);
   top: -182px;
   right: -300px;
   margin-bottom: 0;
-  border: 0.5px solid #7786e7;
+  border: 1px transparent #7786e7;
   border-radius: 5px;
 }
 .city-degree {
@@ -69,7 +73,7 @@ li {
   margin: 10px;
   padding: 10px;
   position: relative;
-  font-size: 17px;
+  font-size: 14px;
   top: -40px;
   left: 20px;
 }

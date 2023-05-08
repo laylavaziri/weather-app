@@ -1,11 +1,34 @@
+function getData(response) {
+  console.log(response);
+  let dateTime = document.querySelector("#week-daytime");
+  let currentTemperature = Math.round(response.data.main.temp);
+  let temp = document.querySelector("#city-degree");
+  let currentHumidity = Math.round(response.data.main.humidity);
+  let humidity = document.querySelector("#humidity");
+  let currentWind = Math.round(response.data.wind.speed);
+  let wind = document.querySelector("#wind");
+  let description = document.querySelector("#description");
+  let currentDescription = response.data.weather[0].description;
+  let iconElement = document.querySelector("#icon");
+  let weatherIcon = response.data.weather[0].icon;
+  dateTime.innerHTML = daytimeDisplay(response.data.dt * 1000);
+  temp.innerHTML = currentTemperature;
+  humidity.innerHTML = currentHumidity;
+  wind.innerHTML = currentWind;
+  description.innerHTML = currentDescription;
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  console.log(iconElement);
+  console.log(weatherIcon);
+}
 function changeCity(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-input");
   let cityName = document.querySelector("#city-name");
-  console.log(cityInput.value);
   cityName.innerHTML = cityInput.value;
   let city = cityName.innerHTML;
-  console.log(city);
   let apiKey = "1a67c303cde05fab7777c56416ba8b91";
   let apiUrl = `https:api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(getData);
@@ -22,20 +45,7 @@ function changeDegreeC(event) {
   degreeFunction.innerHTML = 18;
 }
 
-function getData(response) {
-  console.log(response);
-  let currentTemperature = Math.round(response.data.main.temp);
-  let temp = document.querySelector("#city-degree");
-  let currentHumidity = Math.round(response.data.main.humidity);
-  let humidity = document.querySelector("#humidity");
-  let currentWind = Math.round(response.data.wind.speed);
-  let wind = document.querySelector("#wind");
-  temp.innerHTML = currentTemperature;
-  humidity.innerHTML = currentHumidity;
-  wind.innerHTML = currentWind;
-}
-
-function daytimeDisplay() {
+function daytimeDisplay(timestamp) {
   let weekDays = [
     "Sunday",
     "Monday",
@@ -46,7 +56,7 @@ function daytimeDisplay() {
     "Saturday",
   ];
 
-  let timeNow = new Date();
+  let timeNow = new Date(timestamp);
   let weekday = weekDays[timeNow.getDay()];
   let hour = timeNow.getHours();
   let minute = timeNow.getMinutes();
@@ -58,8 +68,7 @@ function daytimeDisplay() {
   }
   let daytimeDisplay = `${weekday} ${hour}:${minute}`;
 
-  let weekdayChange = document.querySelector("#week-daytime");
-  weekdayChange.innerHTML = daytimeDisplay;
+  return daytimeDisplay;
 }
 
 let form = document.querySelector("#city-search");
@@ -70,5 +79,3 @@ degreeTypeOne.addEventListener("click", changeDegreeF);
 
 let degreeTypeTwo = document.querySelector("#celcius");
 degreeTypeTwo.addEventListener("click", changeDegreeC);
-
-daytimeDisplay();
