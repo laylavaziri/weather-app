@@ -20,6 +20,7 @@ h1 {
 h2 {
   margin-top: 0px;
   margin-bottom: 5px;
+  text-transform: capitalize;
 }
 form {
   width: 950px;
@@ -58,9 +59,9 @@ li {
 }
 .degree-type {
   font-size: 14px;
-  position: absolute;
-  top: 280px;
-  left: 310px;
+  position: relative;
+  top: -60px;
+  left: 105px;
   color: rgba(43, 41, 41, 1);
   transition: all 200ms ease-in-out;
 }
@@ -74,9 +75,10 @@ li {
   color: rgba(43, 41, 41, 1);
 }
 .day-time {
-  font-size: 14px;
+  font-size: 13px;
   color: rgba(43, 41, 41, 1);
   padding: 12px 0 0 0;
+  font-family: "Courier New", Courier, monospace;
 }
 .forecast {
   position: absolute;
