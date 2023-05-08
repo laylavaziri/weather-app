@@ -6,7 +6,7 @@ function changeCity(event) {
   cityName.innerHTML = cityInput.value;
   let city = cityName.innerHTML;
   console.log(city);
-  let apiKey = "bc5ca568ee2d7c71357ca430a3ff8705";
+  let apiKey = "1a67c303cde05fab7777c56416ba8b91";
   let apiUrl = `https:api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(getData);
 }
@@ -52,6 +52,9 @@ function daytimeDisplay() {
   let minute = timeNow.getMinutes();
   if (minute < 10) {
     minute = `0${minute}`;
+  }
+  if (hour < 10) {
+    hour = `0${hour}`;
   }
   let daytimeDisplay = `${weekday} ${hour}:${minute}`;
 
