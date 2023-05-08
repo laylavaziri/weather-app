@@ -10,7 +10,6 @@ function getData(response) {
   let description = document.querySelector("#description");
   let currentDescription = response.data.weather[0].description;
   let iconElement = document.querySelector("#icon");
-  let weatherIcon = response.data.weather[0].icon;
   dateTime.innerHTML = daytimeDisplay(response.data.dt * 1000);
   temp.innerHTML = currentTemperature;
   humidity.innerHTML = currentHumidity;
@@ -20,8 +19,6 @@ function getData(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  console.log(iconElement);
-  console.log(weatherIcon);
 }
 function changeCity(event) {
   event.preventDefault();

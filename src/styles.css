@@ -1,5 +1,5 @@
 body {
-  background-color: rgba(168, 166, 166, 0.2);
+  background-color: rgba(236, 110, 76, 0.1);
 }
 .container {
   max-width: 600px;
@@ -7,8 +7,8 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 0px 30px;
-  background-color: rgba(168, 166, 166, 0.1);
-  border: 1px solid #8d9191;
+  background-color: rgba(168, 166, 166, 0.5);
+  border: 1px solid rgb(158, 62, 35);
   border-radius: 6px;
 }
 h1 {
@@ -18,8 +18,11 @@ h1 {
 }
 
 h2 {
-  margin-top: 30px;
+  margin-top: 0px;
   margin-bottom: 5px;
+}
+form {
+  width: 950px;
 }
 .icon {
   width: 85px;
@@ -28,22 +31,23 @@ h2 {
   position: relative;
   top: 5px;
 }
+ul {
+  list-style: none;
+}
 li {
   margin-top: 6px;
-  text-transform: capitalize;
 }
 
 .weather-components {
   display: block;
   font-size: 12px;
-  max-width: 200px;
-  height: 80px;
+  width: 250px;
+  max-height: 80px;
   position: relative;
-  list-style: none;
-  color: #49528f;
-  background-color: rgb(81, 132, 202, 0.1);
-  top: -182px;
-  right: -300px;
+  right: -272px;
+  top: -120px;
+  color: rgb(113, 34, 12);
+  background-color: rgb(236, 110, 76, 0.4);
   margin-bottom: 0;
   border: 1px transparent #7786e7;
   border-radius: 5px;
@@ -54,9 +58,9 @@ li {
 }
 .degree-type {
   font-size: 14px;
-  position: relative;
-  top: -60px;
-  right: -100px;
+  position: absolute;
+  top: 280px;
+  left: 310px;
   color: rgba(43, 41, 41, 1);
   transition: all 200ms ease-in-out;
 }
@@ -70,16 +74,17 @@ li {
   color: rgba(43, 41, 41, 1);
 }
 .day-time {
-  margin: 10px;
-  padding: 10px;
-  position: relative;
   font-size: 14px;
-  top: -40px;
-  left: 20px;
+  color: rgba(43, 41, 41, 1);
+  padding: 12px 0 0 0;
 }
 .forecast {
-  position: relative;
-  top: -120px;
+  position: absolute;
+  width: 550px;
+  top: 380px;
+}
+li:first-letter {
+  text-transform: capitalize;
 }
 .days {
   font-size: 16px;
@@ -94,7 +99,7 @@ li {
   padding: 7px 10px;
 }
 .btn:hover {
-  background-color: rgb(81, 132, 202);
+  background-color: rgb(236, 110, 76);
 }
 .search {
   margin-top: 20px;
