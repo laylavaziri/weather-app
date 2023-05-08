@@ -1,8 +1,11 @@
-function getData(response) {
-  console.log(response);
-  let dateTime = document.querySelector("#week-daytime");
-  let currentTemperature = Math.round(response.data.main.temp);
+let currentTemperature;
+function getTempData(response) {
+  currentTemperature = Math.round(response.data.main.temp);
   let temp = document.querySelector("#city-degree");
+  temp.innerHTML = currentTemperature;
+}
+function getData(response) {
+  let dateTime = document.querySelector("#week-daytime");
   let currentHumidity = Math.round(response.data.main.humidity);
   let humidity = document.querySelector("#humidity");
   let currentWind = Math.round(response.data.wind.speed);
@@ -11,7 +14,6 @@ function getData(response) {
   let currentDescription = response.data.weather[0].description;
   let iconElement = document.querySelector("#icon");
   dateTime.innerHTML = daytimeDisplay(response.data.dt * 1000);
-  temp.innerHTML = currentTemperature;
   humidity.innerHTML = currentHumidity;
   wind.innerHTML = currentWind;
   description.innerHTML = currentDescription;
@@ -29,17 +31,18 @@ function changeCity(event) {
   let apiKey = "1a67c303cde05fab7777c56416ba8b91";
   let apiUrl = `https:api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(getData);
+  axios.get(apiUrl).then(getTempData);
 }
 
 function changeDegreeF(event) {
   event.preventDefault();
   let degreeFunction = document.querySelector("#city-degree");
-  degreeFunction.innerHTML = 45;
+  degreeFunction.innerHTML = Math.round((currentTemperature * 9) / 5 + 32);
 }
 function changeDegreeC(event) {
   event.preventDefault();
   let degreeFunction = document.querySelector("#city-degree");
-  degreeFunction.innerHTML = 18;
+  degreeFunction.innerHTML = currentTemperature;
 }
 
 function daytimeDisplay(timestamp) {

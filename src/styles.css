@@ -8,8 +8,9 @@ body {
   margin-bottom: 20px;
   padding: 0px 30px;
   background-color: rgba(168, 166, 166, 0.5);
-  border: 1px solid rgb(158, 62, 35);
+  border: 2px solid rgb(158, 62, 35);
   border-radius: 6px;
+  box-shadow: 0px 6px 6px rgb(158, 62, 35, 0.2);
 }
 h1 {
   margin-top: 20px;
