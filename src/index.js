@@ -1,4 +1,6 @@
-let currentTemperature;
+let currentTemperature = "--";
+
+currentTemperature;
 function getTempData(response) {
   currentTemperature = Math.round(response.data.main.temp);
   let temp = document.querySelector("#city-degree");
@@ -37,7 +39,9 @@ function changeCity(event) {
 function changeDegreeF(event) {
   event.preventDefault();
   let degreeFunction = document.querySelector("#city-degree");
-  degreeFunction.innerHTML = Math.round((currentTemperature * 9) / 5 + 32);
+  if (currentTemperature != "--") {
+    degreeFunction.innerHTML = Math.round((currentTemperature * 9) / 5 + 32);
+  } else degreeFunction.innerHTML = "--";
 }
 function changeDegreeC(event) {
   event.preventDefault();
