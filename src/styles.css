@@ -2,7 +2,7 @@ body {
   background-color: rgba(236, 110, 76, 0.1);
 }
 .container {
-  max-width: 600px;
+  width: 600px;
   height: 500px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -28,6 +28,7 @@ form {
 }
 .icon {
   width: 85px;
+  height: 85px;
 }
 
 ul {
