@@ -29,7 +29,7 @@ function changeCity(event) {
   cityName.innerHTML = cityInput.value;
   let city = cityName.innerHTML;
   let apiKey = "1a67c303cde05fab7777c56416ba8b91";
-  let apiUrl = `https:api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(getData);
   axios.get(apiUrl).then(getTempData);
 }
