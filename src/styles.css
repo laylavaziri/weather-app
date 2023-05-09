@@ -94,13 +94,13 @@ li:first-letter {
   font-size: 28px;
 }
 .btn-primary {
-  background-color: rgba(168, 166, 166, 0.5);
+  background-color: rgb(236, 110, 76);
   border: rgb(168, 166, 166);
   transition: all 200ms ease-in-out;
   padding: 7px 10px;
 }
 .btn:hover {
-  background-color: rgb(236, 110, 76);
+  background-color: rgba(168, 166, 166, 0.5);
 }
 .search {
   margin-top: 20px;
