@@ -46,7 +46,7 @@ li {
   position: relative;
   right: -272px;
   top: -120px;
-  color: rgb(113, 34, 12);
+  color: rgb(170, 47, 13);
   background-color: rgb(236, 110, 76, 0.4);
   margin-bottom: 0;
   border: 1px transparent #7786e7;
@@ -64,8 +64,20 @@ li {
   color: rgba(43, 41, 41, 1);
   transition: all 200ms ease-in-out;
 }
+
+.celcius-farenheit {
+  color: black;
+}
+
 .celcius-farenheit:hover {
-  color: rgb(52, 113, 199);
+  cursor: default;
+  color: black;
+}
+
+.active {
+  color: rgb(170, 47, 13);
+}
+.active:hover {
   cursor: pointer;
 }
 

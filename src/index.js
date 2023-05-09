@@ -34,11 +34,14 @@ function changeCity(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(getData);
   axios.get(apiUrl).then(getTempData);
+  degreeTypeCelcius.classList.remove("active");
 }
 
 function changeDegreeF(event) {
   event.preventDefault();
   let degreeFunction = document.querySelector("#city-degree");
+  degreeTypeFarenheit.classList.remove("active");
+  degreeTypeCelcius.classList.add("active");
   if (currentTemperature != "--") {
     degreeFunction.innerHTML = Math.round((currentTemperature * 9) / 5 + 32);
   } else degreeFunction.innerHTML = "--";
@@ -46,6 +49,8 @@ function changeDegreeF(event) {
 function changeDegreeC(event) {
   event.preventDefault();
   let degreeFunction = document.querySelector("#city-degree");
+  degreeTypeCelcius.classList.remove("active");
+  degreeTypeFarenheit.classList.add("active");
   degreeFunction.innerHTML = currentTemperature;
 }
 
@@ -78,8 +83,8 @@ function daytimeDisplay(timestamp) {
 let form = document.querySelector("#city-search");
 form.addEventListener("submit", changeCity);
 
-let degreeTypeOne = document.querySelector("#farenheit");
-degreeTypeOne.addEventListener("click", changeDegreeF);
+let degreeTypeFarenheit = document.querySelector("#farenheit");
+degreeTypeFarenheit.addEventListener("click", changeDegreeF);
 
-let degreeTypeTwo = document.querySelector("#celcius");
-degreeTypeTwo.addEventListener("click", changeDegreeC);
+let degreeTypeCelcius = document.querySelector("#celcius");
+degreeTypeCelcius.addEventListener("click", changeDegreeC);
