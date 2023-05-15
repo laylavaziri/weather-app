@@ -6,6 +6,27 @@ function getTempData(response) {
   let temp = document.querySelector("#city-degree");
   temp.innerHTML = currentTemperature;
 }
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  weekdays.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+  <div class="col-2">
+              <div class="forecast-day">${day}</div>
+              <div class="forecast-icon">🌧</div>
+              <div class="forecast-temp">
+                18° <span class="min-temp">11°</span>
+              </div>
+            </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function getData(response) {
   let dateTime = document.querySelector("#week-daytime");
   let currentHumidity = Math.round(response.data.main.humidity);
@@ -36,6 +57,8 @@ function changeCity(event) {
   axios.get(apiUrl).then(getTempData);
   degreeTypeCelcius.classList.remove("active");
 }
+
+displayForecast();
 
 function changeDegreeF(event) {
   event.preventDefault();
