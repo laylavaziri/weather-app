@@ -12,19 +12,38 @@ function displayForecast(response) {
   console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  forecastIcon = "";
+  tempMax = "";
+  tempMin = "";
+  let todayNumber = new Date().getDay();
+  let dayNumber = todayNumber;
+  let forecastDay = 0;
+  let weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
   weekdays.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+    while (forecastDay < 5) {
+      day = weekdays[dayNumber];
+
+      forecastHTML =
+        forecastHTML +
+        `
   <div class="col-2">
               <div class="forecast-day">${day}</div>
-              <div class="forecast-icon">🌧</div>
+              <div class="forecast-icon">${forecastIcon}</div>
               <div class="forecast-temp">
-                18° <span class="min-temp">11°</span>
+                ${tempMax}° <span class="min-temp">${tempMin}°</span>
               </div>
             </div>`;
+      if (dayNumber < 6) {
+        dayNumber = dayNumber + 1;
+      } else {
+        dayNumber = 0;
+      }
+      forecastDay = forecastDay + 1;
+    }
   });
+  forecastDay = forecastDay + 1;
+
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }

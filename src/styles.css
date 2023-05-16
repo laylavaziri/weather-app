@@ -96,7 +96,8 @@ li {
 }
 .forecast {
   position: absolute;
-  width: 550px;
+  text-align: center;
+  width: 600px;
   top: 380px;
 }
 li:first-letter {
