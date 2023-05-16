@@ -7,7 +7,9 @@ function getTempData(response) {
   temp.innerHTML = currentTemperature;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(daytimeDisplay(response.data.list[0].dt * 1000));
+  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -28,6 +30,16 @@ function displayForecast() {
 }
 
 function getData(response) {
+  let locationElement = document.querySelector(`#city-name`);
+  let country = response.data.sys.country;
+  let city = locationElement.textContent;
+  let location = city;
+  if (city.includes(", ")) {
+    location = location;
+  } else {
+    location = `${city}, ${country}`;
+  }
+  locationElement.innerHTML = location;
   let dateTime = document.querySelector("#week-daytime");
   let currentHumidity = Math.round(response.data.main.humidity);
   let humidity = document.querySelector("#humidity");
@@ -44,6 +56,13 @@ function getData(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  let lat = response.data.coord.lat;
+  let lon = response.data.coord.lon;
+  let apiKey = "842b36d55cb28eba74a018029d56b04c";
+  let cnt = 0;
+  forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(forecastApiUrl).then(displayForecast);
+  console.log(forecastApiUrl);
 }
 function changeCity(event) {
   event.preventDefault();
@@ -57,8 +76,6 @@ function changeCity(event) {
   axios.get(apiUrl).then(getTempData);
   degreeTypeCelcius.classList.remove("active");
 }
-
-displayForecast();
 
 function changeDegreeF(event) {
   event.preventDefault();
