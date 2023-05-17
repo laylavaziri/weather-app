@@ -8,8 +8,9 @@ function getTempData(response) {
 }
 
 function displayForecast(response) {
-  console.log(daytimeDisplay(response.data.list[0].dt * 1000));
   console.log(response.data);
+  let listNumber = 0;
+
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   forecastIcon = "";
@@ -24,12 +25,16 @@ function displayForecast(response) {
     while (forecastDay < 5) {
       day = weekdays[dayNumber];
 
+      let tempMax = Math.ceil(response.data.list[listNumber].main.temp_max);
+      let tempMin = Math.floor(response.data.list[listNumber].main.temp_min);
+      let forecastIcon = response.data.list[listNumber].weather[0].icon;
+
       forecastHTML =
         forecastHTML +
         `
   <div class="col-2">
               <div class="forecast-day">${day}</div>
-              <div class="forecast-icon">${forecastIcon}</div>
+              <img class="forecast-icon" src="https://openweathermap.org/img/wn/${forecastIcon}@2x.png"/>
               <div class="forecast-temp">
                 ${tempMax}° <span class="min-temp">${tempMin}°</span>
               </div>
@@ -40,9 +45,9 @@ function displayForecast(response) {
         dayNumber = 0;
       }
       forecastDay = forecastDay + 1;
+      listNumber = listNumber + 8;
     }
   });
-  forecastDay = forecastDay + 1;
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;

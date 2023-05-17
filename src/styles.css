@@ -100,6 +100,10 @@ li {
   width: 600px;
   top: 380px;
 }
+.forecast-icon {
+  width: 50px;
+  height: 50px;
+}
 li:first-letter {
   text-transform: capitalize;
 }
